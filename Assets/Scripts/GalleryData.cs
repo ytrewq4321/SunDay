@@ -3,22 +3,26 @@ using UnityEngine;
 
 public class GalleryData : MonoBehaviour
 {
-    public static GalleryData instance;
+    public static GalleryData Instance;
 
-    public List<Sprite> loadedImages = new List<Sprite>();
-    public int ImageIndex;
+    public List<Sprite> LoadedImages = new List<Sprite>();
     public Sprite sprite;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
+    }
+
+    public void OpenImage(Sprite sprite)
+    {
+        this.sprite = sprite;
     }
 }
